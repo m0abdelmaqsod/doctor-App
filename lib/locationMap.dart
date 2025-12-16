@@ -124,6 +124,10 @@ class _LocationMapState extends State<LocationMap> {
                       "images/Map Image.png",
                     ),
                   ),
+
+                  IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.arrow_back)),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(

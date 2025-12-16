@@ -80,213 +80,221 @@ class _CompletedState extends State<Completed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(),
         body: ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              // ========= all data doctor ========= //
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  // ========= all data doctor ========= //
 
-              myBookingsCompleted.isEmpty
-                  ? const Text(
-                      "No Completed Bookings",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                    )
-                  : Column(
-                      children: [
-                        ...List.generate(
-                          myBookingsCompleted.length,
-                          (i) {
-                            final item = myBookingsCompleted[i];
-                            return Card(
-                              margin: const EdgeInsets.only(bottom: 20),
-                              color: Colors.white,
-                              elevation: 3,
-                              child: Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      "May 22, 2023 - 10.00 AM",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w700),
-                                    ),
-
-                                    // ========= && ========= //
-                                    const SizedBox(
-                                      height: 10,
-                                    ),
-                                    // ========= && ========= //
-
-                                    // ========= && ========= //
-                                    Container(
-                                      // width: 220,
-                                      height: 1,
-                                      color: Colors.grey[400],
-                                    ),
-                                    // ========= && ========= //
-
-                                    // ========= && ========= //
-                                    const SizedBox(
-                                      height: 15,
-                                    ),
-                                    // ========= && ========= //
-
-                                    Row(
+                  myBookingsCompleted.isEmpty
+                      ? const Text(
+                          "No Completed Bookings",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w700),
+                        )
+                      : Column(
+                          children: [
+                            ...List.generate(
+                              myBookingsCompleted.length,
+                              (i) {
+                                final item = myBookingsCompleted[i];
+                                return Card(
+                                  margin: const EdgeInsets.only(bottom: 20),
+                                  color: Colors.white,
+                                  elevation: 3,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadiusGeometry.circular(12),
-                                          child: Image.asset(
-                                            item["image"],
-                                            width: 110,
-                                            height: 110,
-                                            fit: BoxFit.cover,
-                                          ),
+                                        const Text(
+                                          "May 22, 2023 - 10.00 AM",
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w700),
                                         ),
 
                                         // ========= && ========= //
                                         const SizedBox(
-                                          width: 10,
+                                          height: 10,
                                         ),
                                         // ========= && ========= //
 
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                        // ========= && ========= //
+                                        Container(
+                                          // width: 220,
+                                          height: 1,
+                                          color: Colors.grey[400],
+                                        ),
+                                        // ========= && ========= //
+
+                                        // ========= && ========= //
+                                        const SizedBox(
+                                          height: 15,
+                                        ),
+                                        // ========= && ========= //
+
+                                        Row(
                                           children: [
-                                            Text(
-                                              item['name'],
-                                              style: const TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w600),
-                                            ),
-                                            // ========= && ========= //
-                                            const SizedBox(
-                                              height: 5,
-                                            ),
-                                            // ========= && ========= //
-                                            Text(
-                                              item["Specialization"],
-                                              style: TextStyle(
-                                                  fontSize: 16,
-                                                  color: Colors.grey[800],
-                                                  fontWeight: FontWeight.w600),
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadiusGeometry.circular(
+                                                      12),
+                                              child: Image.asset(
+                                                item["image"],
+                                                width: 110,
+                                                height: 110,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
 
                                             // ========= && ========= //
                                             const SizedBox(
-                                              height: 5,
+                                              width: 10,
                                             ),
                                             // ========= && ========= //
 
-                                            Row(
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
-                                                SvgPicture.asset(
-                                                  "images/icon SVG/Location.svg",
-                                                  color:
-                                                      const Color(0xFF50555F),
-                                                  width: 18,
+                                                Text(
+                                                  item['name'],
+                                                  style: const TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
+                                                // ========= && ========= //
+                                                const SizedBox(
+                                                  height: 5,
+                                                ),
+                                                // ========= && ========= //
+                                                Text(
+                                                  item["Specialization"],
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      color: Colors.grey[800],
+                                                      fontWeight:
+                                                          FontWeight.w600),
                                                 ),
 
                                                 // ========= && ========= //
                                                 const SizedBox(
-                                                  width: 5,
+                                                  height: 5,
                                                 ),
-
                                                 // ========= && ========= //
 
-                                                Text(
-                                                  item['location'],
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.grey[700]),
+                                                Row(
+                                                  children: [
+                                                    SvgPicture.asset(
+                                                      "images/icon SVG/Location.svg",
+                                                      color: const Color(
+                                                          0xFF50555F),
+                                                      width: 18,
+                                                    ),
+
+                                                    // ========= && ========= //
+                                                    const SizedBox(
+                                                      width: 5,
+                                                    ),
+
+                                                    // ========= && ========= //
+
+                                                    Text(
+                                                      item['location'],
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          color:
+                                                              Colors.grey[700]),
+                                                    ),
+                                                  ],
                                                 ),
                                               ],
                                             ),
                                           ],
                                         ),
-                                      ],
-                                    ),
-
-                                    // ========= && ========= //
-                                    const SizedBox(
-                                      height: 15,
-                                    ),
-                                    // ========= && ========= //
-
-                                    // ========= && ========= //
-                                    Container(
-                                      // width: 220,
-                                      height: 1,
-                                      color: Colors.grey[400],
-                                    ),
-                                    // ========= && ========= //
-
-                                    // ========= && ========= //
-                                    const SizedBox(
-                                      height: 15,
-                                    ),
-                                    // ========= && ========= //
-
-                                    // ========= button Cancel and Reschedule ========= //
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        ElevatedButton(
-                                          onPressed: () {},
-                                          style: ElevatedButton.styleFrom(
-                                            minimumSize: const Size(155, 40),
-                                            backgroundColor:
-                                                const Color(0xffE5E7EB),
-                                          ),
-                                          child: const Text(
-                                            "Re-Book",
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                color: Colors.black),
-                                          ),
-                                        ),
 
                                         // ========= && ========= //
+                                        const SizedBox(
+                                          height: 15,
+                                        ),
+                                        // ========= && ========= //
 
-                                        ElevatedButton(
-                                          onPressed: () {},
-                                          style: ElevatedButton.styleFrom(
-                                            minimumSize: const Size(155, 40),
-                                            backgroundColor:
-                                                const Color(0xff1C2A3A),
-                                          ),
-                                          child: const Text(
-                                            "Add Review",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 17),
-                                          ),
+                                        // ========= && ========= //
+                                        Container(
+                                          // width: 220,
+                                          height: 1,
+                                          color: Colors.grey[400],
+                                        ),
+                                        // ========= && ========= //
+
+                                        // ========= && ========= //
+                                        const SizedBox(
+                                          height: 15,
+                                        ),
+                                        // ========= && ========= //
+
+                                        // ========= button Cancel and Reschedule ========= //
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              style: ElevatedButton.styleFrom(
+                                                minimumSize:
+                                                    const Size(155, 40),
+                                                backgroundColor:
+                                                    const Color(0xffE5E7EB),
+                                              ),
+                                              child: const Text(
+                                                "Re-Book",
+                                                style: TextStyle(
+                                                    fontSize: 17,
+                                                    color: Colors.black),
+                                              ),
+                                            ),
+
+                                            // ========= && ========= //
+
+                                            ElevatedButton(
+                                              onPressed: () {},
+                                              style: ElevatedButton.styleFrom(
+                                                minimumSize:
+                                                    const Size(155, 40),
+                                                backgroundColor:
+                                                    const Color(0xff1C2A3A),
+                                              ),
+                                              child: const Text(
+                                                "Add Review",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 17),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ],
-                    )
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        )
 
-              // ========= && ========= //
+                  // ========= && ========= //
 
-              // ========= && ========= //
-            ],
-          ),
-        )
-      ],
-    ));
+                  // ========= && ========= //
+                ],
+              ),
+            )
+          ],
+        ));
   }
 }

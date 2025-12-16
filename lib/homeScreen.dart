@@ -1,4 +1,7 @@
+import 'package:doctorapp/Booking%20Hostory/MyBookings.dart';
+import 'package:doctorapp/locationMap.dart';
 import 'package:doctorapp/profileUser/Notification.dart';
+import 'package:doctorapp/profileUser/ProfileUser.dart';
 import 'package:doctorapp/searchAllDoctors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -87,6 +90,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             IconButton(
               onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const LocationMap()));
+
                 _onItemTapped(1);
               },
               icon: SvgPicture.asset(
@@ -97,6 +103,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             IconButton(
               onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => const MyBookings()));
+
                 _onItemTapped(2);
               },
               icon: SvgPicture.asset(
@@ -107,6 +116,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             IconButton(
               onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const ProfileUser()));
                 _onItemTapped(3);
               },
               icon: SvgPicture.asset(

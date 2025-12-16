@@ -1,3 +1,6 @@
+import 'package:doctorapp/Favorites/Favorite.dart';
+import 'package:doctorapp/logInOrCreate/FillYourProfile.dart';
+import 'package:doctorapp/profileUser/Notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -12,6 +15,7 @@ class _ProfileState extends State<ProfileUser> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: ListView(
         children: [
           Padding(
@@ -20,9 +24,6 @@ class _ProfileState extends State<ProfileUser> {
               children: [
                 Column(
                   children: [
-                    const SizedBox(
-                      height: 15,
-                    ),
                     const Text(
                       "Profile",
                       style:
@@ -110,9 +111,15 @@ class _ProfileState extends State<ProfileUser> {
                               bottom:
                                   BorderSide(width: 0.5, color: Colors.grey))),
                       child: MaterialButton(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
-                        onPressed: () {},
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 15),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const FillYourProfile()));
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -148,9 +155,14 @@ class _ProfileState extends State<ProfileUser> {
                               bottom:
                                   BorderSide(width: 0.5, color: Colors.grey))),
                       child: MaterialButton(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
-                        onPressed: () {},
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 15),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Favorite()));
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -188,18 +200,19 @@ class _ProfileState extends State<ProfileUser> {
                               bottom:
                                   BorderSide(width: 0.5, color: Colors.grey))),
                       child: MaterialButton(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
-                        onPressed: () {},
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 15),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Notifications()));
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
-                                // SvgPicture.asset(
-                                //     "images/icon SVG/heartOutlin.svg",
-                                //     width: 25,
-                                //     color: Colors.black),
                                 const Icon(Icons.notifications_none_rounded),
 
                                 // ========= && ========= //
@@ -229,8 +242,8 @@ class _ProfileState extends State<ProfileUser> {
                               bottom:
                                   BorderSide(width: 0.5, color: Colors.grey))),
                       child: MaterialButton(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 15),
                         onPressed: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -270,8 +283,8 @@ class _ProfileState extends State<ProfileUser> {
                               bottom:
                                   BorderSide(width: 0.5, color: Colors.grey))),
                       child: MaterialButton(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 15),
                         onPressed: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -311,8 +324,8 @@ class _ProfileState extends State<ProfileUser> {
                               bottom:
                                   BorderSide(width: 0.5, color: Colors.grey))),
                       child: MaterialButton(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 15),
                         onPressed: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -348,18 +361,14 @@ class _ProfileState extends State<ProfileUser> {
                     // ========= Log Out ========= //
                     Container(
                       child: MaterialButton(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 15),
                         onPressed: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
-                                // SvgPicture.asset(
-                                //     "images/icon SVG/heartOutlin.svg",
-                                //     width: 25,
-                                //     color: Colors.black),
                                 const Icon(Icons.logout_rounded),
 
                                 // ========= && ========= //

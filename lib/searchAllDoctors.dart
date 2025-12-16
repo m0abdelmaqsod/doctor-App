@@ -87,7 +87,7 @@ class _SearchAllDoctorsState extends State<SearchAllDoctors> {
   ];
 
   String? selectedValue;
-
+  int isSelected = 0;
   List filterList = [];
 
   @override
@@ -184,47 +184,25 @@ class _SearchAllDoctorsState extends State<SearchAllDoctors> {
                       GestureDetector(
                         onTap: () {
                           _searchFunction("");
+                          setState(() {
+                            isSelected = 0;
+                          });
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
                           decoration: BoxDecoration(
-                              color: Colors.black,
+                              color:
+                                  isSelected == 0 ? Colors.black : Colors.white,
                               border: Border.all(width: 2),
                               borderRadius: BorderRadius.circular(30)),
-                          child: const Text(
+                          child: Text(
                             "All",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ),
-
-                      // =====
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      // =====
-
-                      GestureDetector(
-                        onTap: () {
-                          _searchFunction("Cardiologist");
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
-                          decoration: BoxDecoration(
-                              // color: Colors.black,
-                              border: Border.all(width: 2),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: const Text(
-                            "Cardiologist",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              // color: Colors.white,
+                              color:
+                                  isSelected == 0 ? Colors.white : Colors.black,
                             ),
                           ),
                         ),
@@ -238,21 +216,60 @@ class _SearchAllDoctorsState extends State<SearchAllDoctors> {
 
                       GestureDetector(
                         onTap: () {
-                          _searchFunction("Gynecologist");
+                          _searchFunction("Cardiologist");
+                          setState(() {
+                            isSelected = 1;
+                          });
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
                           decoration: BoxDecoration(
                               // color: Colors.black,
+                              color:
+                                  isSelected == 1 ? Colors.black : Colors.white,
                               border: Border.all(width: 2),
                               borderRadius: BorderRadius.circular(30)),
-                          child: const Text(
+                          child: Text(
+                            "Cardiologist",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color:
+                                  isSelected == 1 ? Colors.white : Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // =====
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      // =====
+
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _searchFunction("Gynecologist");
+                            isSelected = 2;
+                          });
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          decoration: BoxDecoration(
+                              color:
+                                  isSelected == 2 ? Colors.black : Colors.white,
+                              border: Border.all(width: 2),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Text(
                             "Gynecologist",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              // color: Colors.white,
+                              color:
+                                  isSelected == 2 ? Colors.white : Colors.black,
                             ),
                           ),
                         ),
@@ -267,20 +284,25 @@ class _SearchAllDoctorsState extends State<SearchAllDoctors> {
                       GestureDetector(
                         onTap: () {
                           _searchFunction("Pediatrics");
+                          setState(() {
+                            isSelected = 3;
+                          });
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
                           decoration: BoxDecoration(
-                              // color: Colors.black,
+                              color:
+                                  isSelected == 3 ? Colors.black : Colors.white,
                               border: Border.all(width: 2),
                               borderRadius: BorderRadius.circular(30)),
-                          child: const Text(
+                          child: Text(
                             "Pediatrics",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              // color: Colors.white,
+                              color:
+                                  isSelected == 3 ? Colors.white : Colors.black,
                             ),
                           ),
                         ),
@@ -295,20 +317,25 @@ class _SearchAllDoctorsState extends State<SearchAllDoctors> {
                       GestureDetector(
                         onTap: () {
                           _searchFunction("Orthopedic Surgery");
+                          setState(() {
+                            isSelected = 4;
+                          });
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
                           decoration: BoxDecoration(
-                              // color: Colors.black,
+                              color:
+                                  isSelected == 4 ? Colors.black : Colors.white,
                               border: Border.all(width: 2),
                               borderRadius: BorderRadius.circular(30)),
-                          child: const Text(
+                          child: Text(
                             "Orthopedic Surgery",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              // color: Colors.white,
+                              color:
+                                  isSelected == 4 ? Colors.white : Colors.black,
                             ),
                           ),
                         ),
@@ -391,11 +418,7 @@ class _SearchAllDoctorsState extends State<SearchAllDoctors> {
 
                 // ========
 
-                // const SizedBox(
-                //   height: 10,
-                // ),
-
-                // ========
+         
 
                 // All doctors Data
                 SizedBox(
@@ -406,7 +429,7 @@ class _SearchAllDoctorsState extends State<SearchAllDoctors> {
                       ...List.generate(
                         filterList.length,
                         (i) {
-                          final    = filterList[i];
+                          final item = filterList[i];
                           return InkWell(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(

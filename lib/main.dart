@@ -1,4 +1,4 @@
-import 'package:doctorapp/homeScreen.dart';
+import 'package:doctorapp/Onboarding/splashScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class _DoctorAppState extends State<DoctorApp> {
       debugShowCheckedModeBanner: false,
       // debugShowMaterialGrid: true,
       home:
-          // SplashScreen(),
+          SplashScreen(),
           // OnboardingScreenOne(),
           // OnboardingScreenTwo(),
           // OnboardingScreenThree(),
@@ -29,7 +29,7 @@ class _DoctorAppState extends State<DoctorApp> {
           // forgetPassword(),
           // VerifyCode(),
           // createNewPassword(),
-          HomeScreen(),
+          // HomeScreen(),
       // LocationMap(),
       // SearchAllDoctors(),
       // DoctorDetails(),

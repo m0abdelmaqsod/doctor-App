@@ -1,4 +1,4 @@
-import 'package:doctorapp/Onboarding/OnboardingScreenOne.dart';
+import 'package:doctorapp/Onboarding/root.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -12,11 +12,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const OnboardingScreenOne(),
+            builder: (context) => Root(),
           ));
     });
     super.initState();
@@ -24,8 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return  Scaffold(
         body: Stack(
           children: [
             SizedBox(
@@ -41,7 +40,6 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ],
         ),
-      ),
     );
   }
 }
